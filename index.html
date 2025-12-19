@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS CDN para renderização imediata -->
+    <!-- Tailwind CSS CDN com configuração mobile-first -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -36,13 +36,28 @@
         100% { transform: translateX(-50%); }
       }
       .animate-marquee {
-        animation: marquee 30s linear infinite;
+        display: flex;
+        width: max-content;
+        animation: marquee 40s linear infinite;
+      }
+      /* Melhora a visualização em telas muito pequenas */
+      @media (max-width: 380px) {
+        .text-huge {
+          font-size: 1.75rem !important;
+          line-height: 2.25rem !important;
+        }
       }
       body {
         font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
       }
       h1, h2, h3, h4 {
         font-family: 'Montserrat', sans-serif;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
     </style>
 
